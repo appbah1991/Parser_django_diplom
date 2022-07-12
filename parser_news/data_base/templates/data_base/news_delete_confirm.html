@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{object.title}}{% endblock%}
+
+
+{% block header %}
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">Название статьи</h1>
+                            <p class="lead text-white-50 mb-4">{{object.title}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock%}
+{% block content %}
+
+<h1>Вы уверены, что хотите удалить данную статью?</h1>
+<form method="post">
+
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Да!</button>
+    <p></p>
+
+</form>
+{% endblock%}

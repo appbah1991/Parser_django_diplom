@@ -22,7 +22,7 @@
         <section class="py-5 border-bottom" id="features">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
-                    {% for item in news %}
+                    {% for item in object_list %}
                     <div>
 
                         <h2 class="h4 fw-bolder">{{item.title}}</h2>
@@ -31,7 +31,7 @@
                             {{item.url}}
                             <i class="bi bi-arrow-right"></i>
                         </a>
-                        <p></p>
+                        <p><a href = "{% url 'data_base:news_delete' pk=item.pk %}">Удалить статью</a></p>
                      {% endfor %}
                     </div>
 
@@ -40,4 +40,3 @@
             </div>
         </section>
 {% endblock%}
-
