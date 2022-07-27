@@ -1,10 +1,12 @@
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.http import request
 from django.shortcuts import render, redirect
 from data_base.models import News
 from data_base.forms import Form_Index
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from django.views.generic import ListView, DeleteView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 
@@ -29,9 +31,11 @@ def main_view(request):
     return render(request, 'data_base/index.html', context= {'form': form})
 
 
-class NewsListView(UserPassesTestMixin, ListView):
+class NewsListView(UserPassesTestMixin, ListView, ):
     model = News
     template_name = 'data_base/result_bv.html'
+    paginate_by = 10
+
 
     def test_func(self):
         return self.request.user.is_superuser
