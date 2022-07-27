@@ -1,10 +1,10 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import render, redirect
 from data_base.models import News
 from data_base.forms import Form_Index
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DeleteView
 
 
 
