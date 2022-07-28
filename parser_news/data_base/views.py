@@ -31,10 +31,11 @@ def main_view(request):
     return render(request, 'data_base/index.html', context= {'form': form})
 
 
-class NewsListView(UserPassesTestMixin, ListView, ):
+class NewsListView(UserPassesTestMixin, ListView):
     model = News
     template_name = 'data_base/result_bv.html'
     paginate_by = 10
+    queryset = News.objects.select_related('title', 'url')
 
 
     def test_func(self):
