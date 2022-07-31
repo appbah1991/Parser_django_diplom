@@ -42,3 +42,5 @@ class Command(BaseCommand):
             print(f'Страница {num_of_page} пройдена...')
 
             num_of_page += 1
+
+
