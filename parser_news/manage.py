@@ -3,7 +3,9 @@
 import os
 import sys
 
-
+if __name__ == "__main__":
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                          'parser_news.settings')
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'parser_news.settings')
